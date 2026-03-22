@@ -1,10 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',       // Static export for Cloudflare Pages
+  output: 'export',
   images: {
-    unoptimized: true,    // Required for static export
+    unoptimized: true,
   },
-  trailingSlash: true,    // Better compatibility with Cloudflare
+  trailingSlash: true,
+  eslint: {
+    ignoreDuringBuilds: false,
+  },
+  experimental: {
+    // silence telemetry prompt in CI
+  },
 }
 
 module.exports = nextConfig
