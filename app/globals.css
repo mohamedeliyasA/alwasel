@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy:        #1B3D8C;
+  --navy-light:  #2451AE;
+  --blue:        #2196C4;
+  --blue-light:  #4FB8E0;
+  --ink:         #0F1F3D;
+  --muted:       #5A6A85;
+  --border:      #DDE3EE;
+  --bg:          #F8FAFD;
+  --bg-warm:     #EEF2F9;
+  --white:       #FFFFFF;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Outfit', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 2px; }
+::selection { background: var(--blue); color: white; }
+
+.font-display { font-family: 'Cormorant Garamond', Georgia, serif; }
+
+.eyebrow {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+
+/* Scroll reveal */
+.sr {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.85s cubic-bezier(0.16,1,0.3,1), transform 0.85s cubic-bezier(0.16,1,0.3,1);
+}
+.sr.in { opacity: 1; transform: translateY(0); }
+.sr-left  { opacity:0; transform:translateX(-32px); transition: opacity 0.85s cubic-bezier(0.16,1,0.3,1), transform 0.85s cubic-bezier(0.16,1,0.3,1); }
+.sr-left.in  { opacity:1; transform:translateX(0); }
+.sr-right { opacity:0; transform:translateX(32px);  transition: opacity 0.85s cubic-bezier(0.16,1,0.3,1), transform 0.85s cubic-bezier(0.16,1,0.3,1); }
+.sr-right.in { opacity:1; transform:translateX(0); }
+.d1 { transition-delay:0.05s; } .d2 { transition-delay:0.15s; }
+.d3 { transition-delay:0.25s; } .d4 { transition-delay:0.35s; }
+.d5 { transition-delay:0.45s; } .d6 { transition-delay:0.55s; }
+
+/* Buttons */
+.btn-primary {
+  display:inline-flex; align-items:center; gap:0.5rem;
+  padding:0.85rem 2rem;
+  background:var(--navy); color:white;
+  font-family:'Outfit',sans-serif; font-weight:500;
+  font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase;
+  border:2px solid var(--navy); cursor:pointer; text-decoration:none;
+  transition:background 0.3s, color 0.3s;
+}
+.btn-primary:hover { background:transparent; color:var(--navy); }
+
+.btn-outline {
+  display:inline-flex; align-items:center; gap:0.5rem;
+  padding:0.85rem 2rem;
+  background:transparent; color:var(--navy);
+  font-family:'Outfit',sans-serif; font-weight:500;
+  font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase;
+  border:2px solid var(--navy); cursor:pointer; text-decoration:none;
+  transition:background 0.3s, color 0.3s;
+}
+.btn-outline:hover { background:var(--navy); color:white; }
+
+.btn-white {
+  display:inline-flex; align-items:center; gap:0.5rem;
+  padding:0.85rem 2rem;
+  background:white; color:var(--navy);
+  font-family:'Outfit',sans-serif; font-weight:600;
+  font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase;
+  border:2px solid white; cursor:pointer; text-decoration:none;
+  transition:background 0.3s, color 0.3s;
+}
+.btn-white:hover { background:transparent; color:white; }
+
+.btn-white-outline {
+  display:inline-flex; align-items:center; gap:0.5rem;
+  padding:0.85rem 2rem;
+  background:transparent; color:white;
+  font-family:'Outfit',sans-serif; font-weight:500;
+  font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase;
+  border:2px solid rgba(255,255,255,0.6); cursor:pointer; text-decoration:none;
+  transition:border-color 0.3s, background 0.3s;
+}
+.btn-white-outline:hover { border-color:white; background:rgba(255,255,255,0.1); }
+
+.divider { display:inline-block; width:48px; height:2px; background:var(--blue); }
+
+/* Photo grid hover */
+.photo-card { overflow:hidden; cursor:pointer; }
+.photo-card img, .photo-card .photo-bg {
+  transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+}
+.photo-card:hover img, .photo-card:hover .photo-bg { transform: scale(1.06); }
+
+/* ═══════════════════════════════════════════
+   PAGE TRANSITIONS & RICH TEXT ANIMATIONS
+   ═══════════════════════════════════════════ */
+
+/* Page enter */
+@keyframes pageEnter {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+main {
+  animation: pageEnter 0.55s cubic-bezier(0.16,1,0.3,1) both;
+}
+
+/* Text animations */
+@keyframes flyLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes flyRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes flyUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes flyDown {
+  from { opacity: 0; transform: translateY(-24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateY(20px) skewY(1deg); }
+  to   { opacity: 1; transform: translateY(0) skewY(0); }
+}
+@keyframes numberCount {
+  from { opacity: 0; transform: translateY(14px) scale(0.9); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Scroll reveal classes */
+.sr         { opacity:0; transform:translateY(32px);  transition: opacity 0.85s cubic-bezier(0.16,1,0.3,1), transform 0.85s cubic-bezier(0.16,1,0.3,1); }
+.sr-left    { opacity:0; transform:translateX(-36px); transition: opacity 0.85s cubic-bezier(0.16,1,0.3,1), transform 0.85s cubic-bezier(0.16,1,0.3,1); }
+.sr-right   { opacity:0; transform:translateX(36px);  transition: opacity 0.85s cubic-bezier(0.16,1,0.3,1), transform 0.85s cubic-bezier(0.16,1,0.3,1); }
+.sr-scale   { opacity:0; transform:scale(0.94);        transition: opacity 0.85s cubic-bezier(0.16,1,0.3,1), transform 0.85s cubic-bezier(0.16,1,0.3,1); }
+.sr.in, .sr-left.in, .sr-right.in, .sr-scale.in { opacity:1; transform:none; }
+
+.d1  { transition-delay:0.05s; }
+.d2  { transition-delay:0.15s; }
+.d3  { transition-delay:0.25s; }
+.d4  { transition-delay:0.35s; }
+.d5  { transition-delay:0.45s; }
+.d6  { transition-delay:0.55s; }
+.d7  { transition-delay:0.65s; }

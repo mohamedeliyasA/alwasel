@@ -1,0 +1,10 @@
+# This file tells Cloudflare Pages how to build the site.
+# It is NOT required if you configure the same settings in the
+# Cloudflare Dashboard — but having it here is good documentation.
+
+[build]
+  command = "npm run build"
+  destination = "out"
+
+[build.environment]
+  NODE_VERSION = "18"
