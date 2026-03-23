@@ -16,18 +16,21 @@ export default function Footer() {
           gap: "3rem",
         }}
       >
-        <div>
-          <div style={{ marginBottom: "1.25rem" }}>
+       <div>
+          <div
+            style={{
+              marginBottom: "1.25rem",
+              display: "inline-block",
+              background: "white",
+              padding: "0.5rem 0.9rem",
+            }}
+          >
             <Image
               src="/logo.png"
               alt="AL Wasel Engineering Consultancy"
-              width={140}
-              height={56}
-              style={{
-                objectFit: "contain",
-                filter: "brightness(0) invert(1)",
-                opacity: 0.9,
-              }}
+              width={130}
+              height={52}
+              style={{ objectFit: "contain", display: "block" }}
             />
           </div>
           <p
