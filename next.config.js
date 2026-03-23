@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
+  output: "export",
   images: {
     unoptimized: true,
   },
@@ -11,6 +11,6 @@ const nextConfig = {
   experimental: {
     // silence telemetry prompt in CI
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
